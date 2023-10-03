@@ -1,0 +1,446 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Shadows Into Light", sans-serif;
+  text-align: center;
+  --interSectionMargin: 200px;
+  --interSectionPadding: 100px;
+  --intraSectionPadding: 50px;
+  --purple: rgb(154, 72, 196);
+  user-select: none;
+}
+
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+.SiteWrapper {
+  overflow-x: hidden;
+}
+a:link {
+  text-decoration: none;
+}
+
+.StickyNav {
+  position: fixed;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100%;
+  background-color: #1d1d1d;
+  z-index: 3;
+}
+
+.NavElements {
+  font-weight: 700;
+  display: flex;
+  justify-content: end;
+  list-style: none;
+  gap: 50px;
+  margin-right: 50px;
+  font-size: 1rem;
+}
+
+.NavElements > li > a:hover {
+  color: #ccc;
+}
+
+.Intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  line-height: 0;
+  padding-bottom: var(--interSectionMargin);
+}
+
+.Intro::before {
+  content: "";
+  background-image: url("images/forest.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  height: 100%;
+  width: 150%;
+  z-index: -1;
+  animation: backgroundBlurAnimation 3s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundBlurAnimation {
+  0% {
+    opacity: 0.9;
+    filter: blur(0px);
+    transform: translate(50px);
+  }
+  50% {
+    filter: blur(4px);
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.9;
+    filter: blur(0px);
+  }
+}
+
+.IntroTitleText {
+  font-size: min(7rem, 13vw);
+  font-weight: 400;
+  animation: IntroTextAnimation 1s ease-in forwards;
+  position: relative;
+  opacity: 0;
+  /* padding-top: 5rem; */
+}
+
+@keyframes IntroTextAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.LogoContainer {
+  z-index: -1;
+  animation: FloatAnimation infinite 5s ease-in-out ;
+}
+
+@keyframes FloatAnimation {
+  0% {
+    transform: translateY(15px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+}
+
+.IntroLogo {
+  display: block;
+  height: min(60vh);
+  position: relative;
+  z-index: -1;
+  animation: landingPageAnimation 1.25s ease-out forwards;
+}
+
+@keyframes landingPageAnimation {
+  0%{
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  80%{
+    opacity: 0.6;
+  }
+
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.IntroSubText {
+  font-size: min(5rem, 10vw);
+  text-align: center;
+  animation: IntroTextAnimation 1.5s ease-in forwards;
+  opacity: 0;
+  position: relative;
+}
+
+#About {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--interSectionMargin);
+  padding-bottom: var(--interSectionMargin);
+  position: relative;
+}
+
+#About::before {
+  content: "";
+  background-image: url("images/house.webp");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.AboutTextContainer {
+  border-radius: 25px;
+  width: 50%;
+  background-color: #111111;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.AboutTextContainer::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 400%;
+  background: linear-gradient(var(--purple), rgb(255, 196, 86));
+  animation: OutlineAnimation 10s linear infinite;
+}
+.AboutTextContainer::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background-color: rgba(0, 0, 0);
+  border-radius: 25px;
+}
+
+@keyframes OutlineAnimation {
+  0% {
+    transform: rotate(0turn);
+  }
+
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.AboutText {
+  font-size: min(2rem, 3vw);
+  z-index: 1;
+}
+
+.Witch-Trail-Container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hidden {
+  transition: transform 1s ease-out;
+  transform: translateX(-100%);
+}
+
+.show {
+  transform: translateX(0);
+}
+
+.WhenText {
+  font-size: min(4rem, 10vw);
+  padding: 0 40px var(--intraSectionPadding) 40px;
+}
+
+.witch-pic {
+  width: 200px;
+  height: 200px;
+  background-image: url("images/witch.webp");
+  background-size: contain;
+  background-repeat: none;
+  background-position: center;
+  position: absolute;
+  right: -202px;
+}
+
+#Registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: var(--intraSectionPadding);
+  height: 100vh;
+}
+
+#Registration::before {
+  content: "";
+  background-image: url("images/hourglass.webp");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.EscapeTimes {
+  font-size: 4rem;
+  display: flex;
+  width: 100%;
+  gap: 100px;
+  justify-content: center;
+  padding-top: var(--interSectionPadding);
+}
+
+.TimeContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.Time {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.Registration-Button {
+  align-items: center;
+  background-image: linear-gradient(135deg, var(--purple), #fc894d);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  height: 54px;
+  justify-content: center;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  margin-top: var(--intraSectionPadding);
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  /* touch-action: manipulation; */
+}
+
+.Registration-Button:active {
+  outline: 0;
+}
+
+.Registration-Button:hover {
+  outline: 0;
+}
+
+.Registration-Button span {
+  transition: all 0.2s;
+}
+
+.Registration-Button:hover span {
+  transform: scale(0.9);
+  opacity: 0.75;
+}
+
+.instagram{
+  display: none;
+  fill: hotpink;
+  width: 70px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  animation: instagramAnimation linear 10s infinite;
+  transition: transform 0.1s linear;
+
+}
+
+.instagram:hover{
+  transform: scale(1.1);
+}
+
+@keyframes instagramAnimation {
+  0% {
+    fill: rgb(255, 147, 201);
+  }
+  33%{
+    fill: rgb(255, 113, 255);
+  }
+
+  66%{
+    fill: rgb(255, 156, 74);
+  }
+
+
+  100% {
+    fill: rgb(255, 147, 201);
+  }
+}
+
+#eNHFnZGwBJI1 {
+  width: 200px;
+}
+
+/* @media screen and (max-width: 991px) {
+  .Registration-Button {
+    font-size: 15px;
+    height: 50px;
+  }
+
+  .Registration-Button span {
+    line-height: 50px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .StickyNav {
+    display: none;
+  }
+
+  .hidden {
+    transition: transform 1s linear;
+  }
+  .AboutTextContainer {
+    font-size: 1.5rem;
+    width: 60%;
+    padding: 20px;
+  }
+
+  .AboutTextContainer::before {
+    width: 300%;
+    height: 200%;
+    animation: OutlineAnimation 1.5s linear infinite;
+  }
+
+  .AboutTextContainer::after {
+    inset: 3px;
+    border-radius: 25px;
+  }
+
+  .AboutText {
+    font-size: 1.3rem;
+  }
+
+  .EscapeTimes {
+    font-size: 30px;
+    gap: 50px;
+  }
+
+  .instagram{
+    display: block;
+  }
+
+
+}
